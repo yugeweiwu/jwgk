@@ -1,0 +1,82 @@
+
+[[overview-http-verbs]]
+== HTTP 动词
+
+RESTful在HTTP动词的使用上尽可能的遵循HTTP与REST的约定。
+
+|===
+| Verb | Usage
+
+| `GET`
+| 用于获取一个资源
+
+| `POST`
+| 用于创建一个资源
+
+| `PUT`
+| 用于更新一个存在的资源
+
+| `DELETE`
+| 用于删除一个存在的资源
+|===
+
+[[overview-http-status-codes]]
+== HTTP 状态码
+
+RESTful对于HTTP的响应状态码的使用上尽可能的遵循HTTP与REST的约定。
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| 请求成功
+
+| `201 Created`
+| 请求成功，一个新的资源已经创建。资源的URI可从响应的`Location`头中找到
+
+| `204 No Content`
+| 请求成功，但并不返回资源
+
+| `400 Bad Request`
+| 请求格式不正确。响应体将包含一个更详细的错误信息
+
+| `401 Unauthorized`
+| 请求未授权
+
+| `403 Forbidden`
+| 请求被拒绝
+
+| `404 Not Found`
+| 请求的资源不存在
+
+| `500 Internal Server Error`
+| 请求失败，服务器错误
+|===
+
+[[overview-error]]
+== 错误响应
+
+自定义业务异常错误响应，当出现业务异常后HTTP响应状态码为400，响应体返回详细错误信息。
+
+.Response
+----
+HTTP/1.1 400 Bad Request
+Content-Type: application/json;charset=UTF-8
+
+{"code":"user.UsernameExisted","message":"账号已经存在。"}
+----
+
+.Response Fields
+|===
+| Path | Type | Description
+
+| `code`
+| `String`
+| 详情请参考 link:error.html[错误码]
+
+| `message`
+| `String`
+| 错误描述
+|===
+
+

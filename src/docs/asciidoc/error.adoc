@@ -1,0 +1,43 @@
+= AsciiDoc 文档
+:doctype: book
+:sectlinks:
+:toc: left
+:toc-title: 目录
+
+
+[%hardbreaks]
+Doc Writer <www.fuyu_1024@163.com>
+v1.0, 2019-11-25
+
+[.lead]
+概要段落注解 用来做第一个首段落做概要(i.e., larger font).
+
+
+[%hardbreaks]
+ruby is red
+java is black
+paragraphs don't require any special markup in AsciiDoc
+A paragraph is just one or more lines of consecutive text
+To begin a new paragraph, separate it by at least one blank line
+
+
+[[primitives-nulls]]
+== Primitive types and null values
+
+* Edgar Allen Poe
+* Sheri S. Tepper
+* Bill Bryson
+
+[NOTE]
+====
+警告块
+
+An admonition block may contain complex content.
+
+.A list
+- one
+- two
+- three
+
+Another paragraph.
+====
