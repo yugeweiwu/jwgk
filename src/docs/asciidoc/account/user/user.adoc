@@ -2,7 +2,7 @@
 ==== 获取单个用户
 
 .Request
-include::../../../../build/snippets/user/get-by-id/http-request.adoc[]
+include::../../../../../build/snippets/account/user/get-by-id/http-request.adoc[]
 
 ////
 .Path Parameters

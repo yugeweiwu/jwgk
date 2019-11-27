@@ -1,18 +1,22 @@
 package com.gkyt.jwgk.domain.account.user;
 
-import lombok.Data;
+import com.gkzx.shared.domain.model.VersionedAggregateRoot;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "user")
-public class User {
-
-    @Id
+public class User extends VersionedAggregateRoot {
+    @Column(nullable = false)
     String id;
     @Column(nullable = false)
-    String name;
+    String userName;
     @Column(nullable = false)
-    String pwd;
+    String passWord;
+    @Column(nullable = false)
+    String phone;
 }

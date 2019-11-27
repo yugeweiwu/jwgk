@@ -42,8 +42,6 @@ public class UserControllerTest {
         //Given 准备数据 创建我们Mock的函数的返回值，或者我们将要测试方法的输入参数
         BDDMockito.given(userApplicationService.get("1")).willReturn(getUserModel());
 
-        System.out.println("模拟出来的service层得到数据"+userApplicationService.get("1").getName());
-
         //When  模拟调用我们要测试的controller方法
         ResultActions result = this.mockMvc
                 .perform(get("/user/{id}","1").accept(MediaType.APPLICATION_JSON));
@@ -61,7 +59,8 @@ public class UserControllerTest {
     private UserModel getUserModel(){
         UserModel userModel = new UserModel();
         userModel.setId("1");
-        userModel.setName("tongsongmin");
+        userModel.setPhone("1234");
+        userModel.setUserName("tongsongmin");
         return userModel;
     }
 
@@ -72,6 +71,7 @@ public class UserControllerTest {
     private FieldDescriptor[] getClientViewModelFieldDescriptors() {
         return new FieldDescriptor[]{
                 fieldWithPath("id").description("标识"),
-                fieldWithPath("name").description("用户姓名")};
+                fieldWithPath("userName").description("姓名"),
+                fieldWithPath("phone").description("号码")};
     }
 }

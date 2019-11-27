@@ -1,15 +1,19 @@
 package com.gkyt.jwgk.application.account.user;
 
 import com.gkyt.jwgk.domain.account.user.User;
-import org.modelmapper.*;
+import com.gkzx.shared.application.model.Mapper;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserMapper {
 
     public UserModel mapToUserModel(User user) {
-        ModelMapper mapper = new ModelMapper();
-        return mapper.map(user, UserModel.class);
+        return new Mapper().map(user, UserModel.class);
+    }
+
+    public Page<UserModel> mapToClientModels(Page<User> users) {
+        return new Mapper().map(users,UserModel.class);
     }
 
 }
