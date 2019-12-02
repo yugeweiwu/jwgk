@@ -1,8 +1,8 @@
-package com.gkyt.jwgk.interfaces.account.user;
+package com.gkyt.jwgk.interfaces.account;
 
-import com.alibaba.fastjson.JSON;
 import com.gkyt.jwgk.application.account.user.UserApplicationService;
 import com.gkyt.jwgk.application.account.user.UserModel;
+import com.gkzx.shared.util.JsonUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
@@ -39,18 +39,16 @@ public class UserControllerTest {
 
     @Test
     public void getUser() throws Exception{
-        //Given 准备数据 创建我们Mock的函数的返回值，或者我们将要测试方法的输入参数
+        //Given
         BDDMockito.given(userApplicationService.get("1")).willReturn(getUserModel());
 
-        //When  模拟调用我们要测试的controller方法
-        ResultActions result = this.mockMvc
-                .perform(get("/user/{id}","1").accept(MediaType.APPLICATION_JSON));
+        //When
+        ResultActions result = this.mockMvc.perform(get("/user/{id}","1")
+                .accept(MediaType.APPLICATION_JSON));
 
-        //Then 主要的点在这里得到断言 编写接口文档
-        //andExpect添加执行完成后的断言
-        // //ResultActions.andDo添加一个结果处理器，表示要对结果做点什么事情
+        //Then
         result.andExpect(status().isOk())
-                .andExpect(content().json(JSON.toJSONString(getUserModel())))
+                .andExpect(content().json(JsonUtils.toJsonString(getUserModel())))
                 .andDo(document("account/user/get-by-id/",
                         pathParameters(getIdParameterDescriptor()),
                         responseFields(getClientViewModelFieldDescriptors())));
@@ -58,7 +56,6 @@ public class UserControllerTest {
 
     private UserModel getUserModel(){
         UserModel userModel = new UserModel();
-        userModel.setId("1");
         userModel.setPhone("1234");
         userModel.setUserName("tongsongmin");
         return userModel;
@@ -70,7 +67,6 @@ public class UserControllerTest {
 
     private FieldDescriptor[] getClientViewModelFieldDescriptors() {
         return new FieldDescriptor[]{
-                fieldWithPath("id").description("标识"),
                 fieldWithPath("userName").description("姓名"),
                 fieldWithPath("phone").description("号码")};
     }

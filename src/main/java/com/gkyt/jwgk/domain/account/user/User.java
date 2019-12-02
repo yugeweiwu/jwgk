@@ -12,8 +12,6 @@ import javax.persistence.*;
 @Table(name = "user")
 public class User extends VersionedAggregateRoot {
     @Column(nullable = false)
-    String id;
-    @Column(nullable = false)
     String userName;
     @Column(nullable = false)
     String passWord;

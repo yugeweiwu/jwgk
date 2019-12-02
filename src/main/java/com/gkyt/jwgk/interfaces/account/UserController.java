@@ -1,4 +1,4 @@
-package com.gkyt.jwgk.interfaces.account.user;
+package com.gkyt.jwgk.interfaces.account;
 
 import com.gkyt.jwgk.application.account.user.UserApplicationService;
 import com.gkyt.jwgk.application.account.user.UserModel;

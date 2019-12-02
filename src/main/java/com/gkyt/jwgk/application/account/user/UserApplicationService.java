@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 /**
  * service
  *
- * @author yu
+ * @author jack yu
  */
 @Service
 public class UserApplicationService {
