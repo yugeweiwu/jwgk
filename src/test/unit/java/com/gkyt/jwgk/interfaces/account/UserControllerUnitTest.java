@@ -30,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = UserController.class)
 @AutoConfigureRestDocs(outputDir = "build/snippets")
-public class UserControllerTest {
+public class UserControllerUnitTest {
     @Autowired
     private MockMvc mockMvc;
 
@@ -68,6 +68,9 @@ public class UserControllerTest {
     private FieldDescriptor[] getClientViewModelFieldDescriptors() {
         return new FieldDescriptor[]{
                 fieldWithPath("userName").description("姓名"),
-                fieldWithPath("phone").description("号码")};
+                fieldWithPath("phone").description("号码"),
+                fieldWithPath("status").description("状态"),
+                fieldWithPath("createdTime").description("创建时间"),
+                fieldWithPath("lastUpdatedTime").description("最后修改时间")};
     }
 }

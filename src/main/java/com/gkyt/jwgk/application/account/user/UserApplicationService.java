@@ -3,10 +3,13 @@ package com.gkyt.jwgk.application.account.user;
 import com.gkyt.jwgk.domain.account.user.User;
 import com.gkyt.jwgk.domain.account.user.UserService;
 import com.gkyt.jwgk.domain.account.user.UserSpecification;
+import com.gkyt.jwgk.domain.account.user.UserStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 /**
  * service
@@ -37,8 +40,9 @@ public class UserApplicationService {
         return userMapper.mapToUserModel(user);
     }
 
-    public Page<UserModel> getPaged(String username, String phone, Pageable pageable){
-        UserSpecification userSpecification = new UserSpecification(username,phone);
+    public Page<UserModel> getPaged(String username, String phone, String roleId,
+        UserStatus status, Date createdStartDate, Date createdEndDate, Pageable pageable){
+        UserSpecification userSpecification = new UserSpecification(username,phone,roleId,status,createdStartDate,createdEndDate);
         Page<User> users = userService.getPaged(userSpecification,pageable);
         return userMapper.mapToClientModels(users);
     }

@@ -2,15 +2,14 @@
 ==== 获取单个用户
 
 .Request
-include::../../../../../build/snippets/account/user/get-by-id/http-request.adoc[]
+include::{snippets}/account/user/get-by-id/http-request.adoc[]
 
-////
+
 .Path Parameters
-include::{snippets}/user/get-by-id/path-parameters.adoc[]
+include::{snippets}/account/user/get-by-id/path-parameters.adoc[]
 
 .Response
-include::{snippets}/user/get-by-id/http-response.adoc[]
+include::{snippets}/account/user/get-by-id/http-response.adoc[]
 
 .Response Fields
-include::{snippets}/user/get-by-id/response-fields.adoc[]
-////
+include::{snippets}/account/user/get-by-id/response-fields.adoc[]

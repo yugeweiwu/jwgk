@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,4 +19,7 @@ public class User extends VersionedAggregateRoot {
     String passWord;
     @Column(nullable = false)
     String phone;
+    @Column(unique = true)
+    private UserStatus status;
+    //private List<UserRole> userRoles = new ArrayList<>();
 }

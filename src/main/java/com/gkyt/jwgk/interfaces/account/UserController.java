@@ -2,11 +2,15 @@ package com.gkyt.jwgk.interfaces.account;
 
 import com.gkyt.jwgk.application.account.user.UserApplicationService;
 import com.gkyt.jwgk.application.account.user.UserModel;
+import com.gkyt.jwgk.domain.account.user.UserStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 
 /**
  * {@code UserController} is the user information class under account information.
@@ -44,8 +48,11 @@ public class UserController {
     public Page<UserModel> getPaged(
             @RequestParam(required = false) String username,
             @RequestParam(required = false) String phone,
+            @RequestParam(required = false) String roleId,
+            @RequestParam(required = false) UserStatus status,
+            @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date createdStartDate,
+            @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date createdEndDate,
             @PageableDefault(size = 2) Pageable pageable) {
-        //pageable有默认值吗？没有会报错  @PageableDefault??/
-        return userApplicationService.getPaged(username,phone,pageable);
+        return userApplicationService.getPaged(username, phone, roleId, status, createdStartDate, createdEndDate, pageable);
     }
 }
