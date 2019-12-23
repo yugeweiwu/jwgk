@@ -38,12 +38,12 @@ public class UserControllerUnitTest {
     private UserApplicationService userApplicationService;
 
     @Test
-    public void getUser() throws Exception{
+    public void getUser() throws Exception {
         //Given
         BDDMockito.given(userApplicationService.get("1")).willReturn(getUserModel());
 
         //When
-        ResultActions result = this.mockMvc.perform(get("/user/{id}","1")
+        ResultActions result = this.mockMvc.perform(get("/user/{id}", "1")
                 .accept(MediaType.APPLICATION_JSON));
 
         //Then
@@ -54,7 +54,7 @@ public class UserControllerUnitTest {
                         responseFields(getClientViewModelFieldDescriptors())));
     }
 
-    private UserModel getUserModel(){
+    private UserModel getUserModel() {
         UserModel userModel = new UserModel();
         userModel.setPhone("1234");
         userModel.setUserName("tongsongmin");

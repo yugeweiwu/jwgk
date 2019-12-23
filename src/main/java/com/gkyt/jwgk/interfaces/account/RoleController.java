@@ -14,12 +14,12 @@ public class RoleController {
     private final RoleApplicationService roleApplicationService;
 
     @Autowired
-    public RoleController(RoleApplicationService roleApplicationService){
+    public RoleController(RoleApplicationService roleApplicationService) {
         this.roleApplicationService = roleApplicationService;
     }
 
     @GetMapping("/{id}")
-    public RoleModel get(@PathVariable("id") String roleId){
+    public RoleModel get(@PathVariable("id") String roleId) {
         return roleApplicationService.get(roleId);
     }
 }

@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserMapper {
 
-    public UserModel mapToUserModel(User user) {
+    UserModel mapToUserModel(User user) {
         return new Mapper().map(user, UserModel.class);
     }
 
-    public Page<UserModel> mapToClientModels(Page<User> users) {
-        return new Mapper().map(users,UserModel.class);
+    Page<UserModel> mapToClientModels(Page<User> users) {
+        return new Mapper().map(users, UserModel.class);
     }
 
 }

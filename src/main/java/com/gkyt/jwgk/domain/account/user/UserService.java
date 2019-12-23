@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-
     private final UserRepository userRepository;
 
     @Autowired
@@ -26,6 +25,6 @@ public class UserService {
     }
 
     public Page<User> getPaged(Specification<User> specification, Pageable pageable) {
-        return userRepository.findAll(specification,pageable);
+        return userRepository.findAll(specification, pageable);
     }
 }

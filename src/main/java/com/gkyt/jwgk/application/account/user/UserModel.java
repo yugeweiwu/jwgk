@@ -9,11 +9,11 @@ import java.util.Date;
 
 @Getter
 @Setter
-public class UserModel{
+public class UserModel {
     private String userName;
     private String phone;
     private UserStatus status;
     private Date createdTime;
     private Date lastUpdatedTime;
-   // private List<UserRoleModel> userRoles;
+    // private List<UserRoleModel> userRoles;
 }

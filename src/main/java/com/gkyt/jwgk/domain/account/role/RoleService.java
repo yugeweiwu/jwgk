@@ -8,11 +8,11 @@ public class RoleService {
     private final RoleRepository roleRepository;
 
     @Autowired
-    public RoleService(RoleRepository roleRepository){
+    public RoleService(RoleRepository roleRepository) {
         this.roleRepository = roleRepository;
     }
 
-    public Role get(String roleId){
-        return roleRepository.findOne(roleId);
+    public Role get(String id) {
+        return roleRepository.findOne(id);
     }
 }

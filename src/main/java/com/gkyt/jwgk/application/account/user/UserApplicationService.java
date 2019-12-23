@@ -11,22 +11,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
-/**
- * service
- *
- * @author jack yu
- */
 @Service
 public class UserApplicationService {
-
     private final UserMapper userMapper;
     private final UserService userService;
 
-    /**
-     * get
-     * @param userMapper
-     * @param userService
-     */
     @Autowired
     public UserApplicationService(
             UserMapper userMapper,
@@ -35,15 +24,15 @@ public class UserApplicationService {
         this.userService = userService;
     }
 
-    public UserModel get(String id) {
-        User user = userService.get(id);
+    public UserModel get(String userId) {
+        User user = userService.get(userId);
         return userMapper.mapToUserModel(user);
     }
 
     public Page<UserModel> getPaged(String username, String phone, String roleId,
-        UserStatus status, Date createdStartDate, Date createdEndDate, Pageable pageable){
-        UserSpecification userSpecification = new UserSpecification(username,phone,roleId,status,createdStartDate,createdEndDate);
-        Page<User> users = userService.getPaged(userSpecification,pageable);
+                                    UserStatus status, Date createdStartDate, Date createdEndDate, Pageable pageable) {
+        UserSpecification userSpecification = new UserSpecification(username, phone, roleId, status, createdStartDate, createdEndDate);
+        Page<User> users = userService.getPaged(userSpecification, pageable);
         return userMapper.mapToClientModels(users);
     }
 }

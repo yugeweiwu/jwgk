@@ -14,7 +14,7 @@ import java.util.Date;
 
 /**
  * {@code UserController} is the user information class under account information.
- *
+ * <p>
  * <p>This is a paragraph <em>but don't know what to write</em>.
  *
  * @author jack fu
@@ -33,12 +33,13 @@ public class UserController {
 
     /**
      * Gets individual user information
-     * @param id userId
+     *
+     * @param userId userId
      * @return {@link UserModel}
      */
     @GetMapping("/{id}")
-    public UserModel get(@PathVariable("id") String id){
-        return userApplicationService.get(id);
+    public UserModel get(@PathVariable("id") String userId) {
+        return userApplicationService.get(userId);
     }
 
     /**

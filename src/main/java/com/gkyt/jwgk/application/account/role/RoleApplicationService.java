@@ -11,12 +11,12 @@ public class RoleApplicationService {
     private final RoleService roleService;
 
     @Autowired
-    public RoleApplicationService(RoleMapper roleMapper,RoleService roleService){
+    public RoleApplicationService(RoleMapper roleMapper, RoleService roleService) {
         this.roleMapper = roleMapper;
         this.roleService = roleService;
     }
 
-    public RoleModel get(String roleId){
+    public RoleModel get(String roleId) {
         Role role = roleService.get(roleId);
         return roleMapper.mapToRoleModel(role);
     }

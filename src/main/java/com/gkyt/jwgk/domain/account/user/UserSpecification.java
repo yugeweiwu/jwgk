@@ -29,11 +29,11 @@ public class UserSpecification implements Specification<User> {
     @Override
     public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
         List<Predicate> predicates = new ArrayList<>();
-        if (!StringUtils.isEmpty(username)){
+        if (!StringUtils.isEmpty(username)) {
             predicates.add(criteriaBuilder.equal(root.get("userName"), username));
         }
-        if(!StringUtils.isEmpty(phone)){
-            predicates.add(criteriaBuilder.equal(root.get("phone"),phone));
+        if (!StringUtils.isEmpty(phone)) {
+            predicates.add(criteriaBuilder.equal(root.get("phone"), phone));
         }
         if (!org.springframework.util.StringUtils.isEmpty(roleId)) {
             predicates.add(criteriaBuilder.equal(root.joinList("userRoles").get("role").get("id"), roleId));

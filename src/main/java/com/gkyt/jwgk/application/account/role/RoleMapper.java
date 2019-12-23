@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class RoleMapper {
-    public RoleModel mapToRoleModel(Role role) {
+    RoleModel mapToRoleModel(Role role) {
         return new Mapper().map(role, RoleModel.class);
     }
 }
