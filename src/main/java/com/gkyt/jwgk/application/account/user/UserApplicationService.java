@@ -35,4 +35,11 @@ public class UserApplicationService {
         Page<User> users = userService.getPaged(userSpecification, pageable);
         return userMapper.mapToClientModels(users);
     }
+
+    public UserModel add(UserModel userModel) {
+        //check
+        User user = userMapper.mapToUser(userModel);
+        User createdUser = userService.add(user);
+        return userMapper.mapToUserModel(createdUser);
+    }
 }

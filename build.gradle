@@ -40,7 +40,7 @@ ext {
 }
 
 flyway {
-    url = 'jdbc:mysql://localhost:32778/infrastructure?useUnicode=true&useSSL=false&serverTimezone=UTC'
+    url = 'jdbc:mysql://localhost:3306/infrastructure?useUnicode=true&useSSL=false&serverTimezone=UTC'
     user = 'root'
     password = 'Password@1'
 }

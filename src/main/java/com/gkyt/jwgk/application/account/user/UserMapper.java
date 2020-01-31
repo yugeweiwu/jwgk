@@ -16,4 +16,7 @@ public class UserMapper {
         return new Mapper().map(users, UserModel.class);
     }
 
+    User mapToUser(UserModel userModel) {
+        return new Mapper().map(userModel, User.class);
+    }
 }

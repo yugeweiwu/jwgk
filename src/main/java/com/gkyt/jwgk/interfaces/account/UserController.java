@@ -3,11 +3,14 @@ package com.gkyt.jwgk.interfaces.account;
 import com.gkyt.jwgk.application.account.user.UserApplicationService;
 import com.gkyt.jwgk.application.account.user.UserModel;
 import com.gkyt.jwgk.domain.account.user.UserStatus;
+import com.gkyt.jwgk.infrastructure.utils.Result;
+import com.gkzx.shared.application.model.validation.ValidateOnCreate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -17,7 +20,7 @@ import java.util.Date;
  * <p>
  * <p>This is a paragraph <em>but don't know what to write</em>.
  *
- * @author jack fu
+ * @author fy
  * @version 1.0
  * @see UserApplicationService
  */
@@ -55,5 +58,13 @@ public class UserController {
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date createdEndDate,
             @PageableDefault(size = 2) Pageable pageable) {
         return userApplicationService.getPaged(username, phone, roleId, status, createdStartDate, createdEndDate, pageable);
+    }
+
+    /**
+     * 添加用户
+     */
+    @PostMapping
+    public Result add(@Validated(ValidateOnCreate.class) @RequestBody UserModel userModel) {
+        return Result.succeed(userApplicationService.add(userModel), "添加用户成功!");
     }
 }

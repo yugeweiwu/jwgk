@@ -27,4 +27,8 @@ public class UserService {
     public Page<User> getPaged(Specification<User> specification, Pageable pageable) {
         return userRepository.findAll(specification, pageable);
     }
+
+    public User add(User user) {
+        return userRepository.save(user);
+    }
 }
